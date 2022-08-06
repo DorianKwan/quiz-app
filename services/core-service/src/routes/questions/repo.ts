@@ -9,7 +9,10 @@ export default class QuestionRepo {
       path.join(__dirname, '../../data', 'questions.json'),
       'utf-8',
     );
-    const questionsJson = JSON.parse(rawQuestionData) as Questions;
+    const { questions } = JSON.parse(rawQuestionData) as Questions;
+
+    return questions;
+  }
 
     return questionsJson;
   }
