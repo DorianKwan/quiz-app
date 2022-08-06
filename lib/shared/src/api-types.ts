@@ -1,3 +1,7 @@
 export namespace ApiData {
-  export type QuestionsList = [];
+  export type QuestionsList = {
+    id: number;
+    question: string;
+    options: string[];
+  }[];
 }
