@@ -4,8 +4,6 @@ import { Questions } from '../../data/questions.type';
 
 export default class QuestionRepo {
   async getQuestions() {
-    console.log(path.join(__dirname, '../../data', 'questions.json'));
-
     // imagine this is coming from an ORM that has proper typing
     const rawQuestionData = fs.readFileSync(
       path.join(__dirname, '../../data', 'questions.json'),
