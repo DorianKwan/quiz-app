@@ -49,9 +49,9 @@ export default class QuestionService {
           });
         }
 
-        const isAnswerOptions = options.includes(questionAnswer);
+        const isAnswerInOptions = options.includes(questionAnswer);
 
-        if (!isAnswerOptions) {
+        if (!isAnswerInOptions) {
           throw new ServiceError({
             type: QuestionServiceError.AnswerNotFound,
             message: `Answer for question ${id} was not found`,
