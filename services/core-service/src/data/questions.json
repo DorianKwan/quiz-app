@@ -3,42 +3,42 @@
     {
       "id": 1,
       "question": "How many states are in the USA?",
-      "answers": ["52", "40", "50", "51"]
+      "options": ["52", "40", "50", "51"]
     },
     {
       "id": 2,
       "question": "What is the capital of Florida?",
-      "answers": ["Tampa Bay", "Tallahassee", "Orlando", "Miami"]
+      "options": ["Tampa Bay", "Tallahassee", "Orlando", "Miami"]
     },
     {
       "id": 3,
       "question": "What year was the Declaration of Independence signed?",
-      "answers": ["1776", "1772", "1792", "1881"]
+      "options": ["1776", "1772", "1792", "1881"]
     },
     {
       "id": 4,
       "question": "How many states were originally part of the US?",
-      "answers": ["9", "13", "11", "50"]
+      "options": ["9", "13", "11", "50"]
     },
     {
       "id": 5,
       "question": "Which US state has the largest land mass?",
-      "answers": ["Montana", "Texas", "California", "Alaska"]
+      "options": ["Montana", "Texas", "California", "Alaska"]
     },
     {
       "id": 6,
       "question": "Which of these are one of two national animals of the United States?",
-      "answers": ["Elk", "American Bison", "Grizzly Bear", "Californian Condor"]
+      "options": ["Elk", "American Bison", "Grizzly Bear", "Californian Condor"]
     },
     {
       "id": 7,
       "question": "Which city has the highest population in the United States?",
-      "answers": ["Chicago", "Houston", "New York", "Los Angeles"]
+      "options": ["Chicago", "Houston", "New York", "Los Angeles"]
     },
     {
       "id": 8,
       "question": "Who is on the American $10 bill?",
-      "answers": [
+      "options": [
         "Alexander Hamilton",
         "Benjamin Franklin",
         "George Washington",
@@ -48,12 +48,12 @@
     {
       "id": 9,
       "question": "Which US state does not border with Canada?",
-      "answers": ["Washington", "Montana", "Ohio", "Massachusetts"]
+      "options": ["Washington", "Montana", "Ohio", "Massachusetts"]
     },
     {
       "id": 10,
       "question": "What state is the Statue of Liberty in?",
-      "answers": ["New Jersey", "New York", "Maryland", "Virginia"]
+      "options": ["New Jersey", "New York", "Maryland", "Virginia"]
     }
   ]
 }
