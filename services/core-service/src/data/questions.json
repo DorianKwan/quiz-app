@@ -1,0 +1,224 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "How many states are in the USA?",
+      "answers": [
+        {
+          "answer": 52,
+          "is_correct": false
+        },
+        {
+          "answer": 40,
+          "is_correct": false
+        },
+        {
+          "answer": 50,
+          "is_correct": true
+        },
+        {
+          "answer": 51,
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "What is the capital of Florida?",
+      "answers": [
+        {
+          "answer": "Tampa Bay",
+          "is_correct": false
+        },
+        {
+          "answer": "Tallahassee",
+          "is_correct": true
+        },
+        {
+          "answer": "Orlando",
+          "is_correct": false
+        },
+        {
+          "answer": "Miami",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "What year was the Declaration of Independence signed?",
+      "answers": [
+        {
+          "answer": 1776,
+          "is_correct": true
+        },
+        {
+          "answer": 1772,
+          "is_correct": false
+        },
+        {
+          "answer": 1792,
+          "is_correct": false
+        },
+        {
+          "answer": 1881,
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "How many states were originally part of the US?",
+      "answers": [
+        {
+          "answer": 9,
+          "is_correct": false
+        },
+        {
+          "answer": 13,
+          "is_correct": true
+        },
+        {
+          "answer": 11,
+          "is_correct": false
+        },
+        {
+          "answer": 50,
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "Which US state has the largest land mass?",
+      "answers": [
+        {
+          "answer": "Montana",
+          "is_correct": false
+        },
+        {
+          "answer": "Texas",
+          "is_correct": false
+        },
+        {
+          "answer": "California",
+          "is_correct": false
+        },
+        {
+          "answer": "Alaska",
+          "is_correct": true
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "question": "Which of these are one of two national animals of the United States?",
+      "answers": [
+        {
+          "answer": "Elk",
+          "is_correct": false
+        },
+        {
+          "answer": "American Bison",
+          "is_correct": true
+        },
+        {
+          "answer": "Grizzly Bear",
+          "is_correct": false
+        },
+        {
+          "answer": "Californian Condor",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "question": "Which city has the highest population in the United States?",
+      "answers": [
+        {
+          "answer": "Chicago",
+          "is_correct": false
+        },
+        {
+          "answer": "Houston",
+          "is_correct": false
+        },
+        {
+          "answer": "New York",
+          "is_correct": true
+        },
+        {
+          "answer": "Los Angeles",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "question": "Who is on the American $10 bill?",
+      "answers": [
+        {
+          "answer": "Alexander Hamilton",
+          "is_correct": false
+        },
+        {
+          "answer": "Benjamin Franklin",
+          "is_correct": false
+        },
+        {
+          "answer": "George Washington",
+          "is_correct": false
+        },
+        {
+          "answer": "Abraham Lincoln",
+          "is_correct": true
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "question": "Which US state does not border with Canada?",
+      "answers": [
+        {
+          "answer": "Washington",
+          "is_correct": false
+        },
+        {
+          "answer": "Montana",
+          "is_correct": false
+        },
+        {
+          "answer": "Ohio",
+          "is_correct": false
+        },
+        {
+          "answer": "Massachusetts",
+          "is_correct": true
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "question": "What state is the Statue of Liberty in?",
+      "answers": [
+        {
+          "answer": "New Jersey",
+          "is_correct": false
+        },
+        {
+          "answer": "New York",
+          "is_correct": false
+        },
+        {
+          "answer": "Maryland",
+          "is_correct": false
+        },
+        {
+          "answer": "Virginia",
+          "is_correct": true
+        }
+      ]
+    }
+  ]
+}

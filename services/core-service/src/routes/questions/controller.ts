@@ -4,20 +4,32 @@ import {
   HttpMethod,
   Router,
   route,
+  err,
 } from '@lcdev/router';
-import QuestionsService from './service';
+import QuestionService, { QuestionServiceError } from './service';
 
-export default (questionsService: QuestionsService) => {
+export default (questionService: QuestionService) => {
   const router = new Router();
 
   router.use(bodyparser());
 
   return addRoutesToRouter(router, [
     route({
-      path: '/timezones',
+      path: '/',
       method: HttpMethod.GET,
       async action() {
-        return [];
+        try {
+          const questions = await questionService.getQuestions();
+
+          return questions;
+        } catch (e: any) {
+          switch (e.type) {
+            case QuestionServiceError.FileReadError:
+              throw err(500, e.message);
+            default:
+              throw e;
+          }
+        }
       },
     }),
   ]);
