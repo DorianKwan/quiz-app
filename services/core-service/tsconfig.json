@@ -17,7 +17,7 @@
     "jsx": "preserve",
     "skipLibCheck": true
   },
-  "include": ["src/**/*", "src/data/questions.json"],
+  "include": ["src/**/*", "src/data/*.json"],
   "exclude": ["node_modules"],
   "references": [{ "path": "../../lib/shared" }],
   "watchOptions": {
