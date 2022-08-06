@@ -14,12 +14,12 @@
     "@fortawesome/react-fontawesome": "^0.1.17",
     "axios": "^0.27.2",
     "dotenv": "^16.0.0",
+    "quiz-shared": "*",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
-    "quiz-shared": "*",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
