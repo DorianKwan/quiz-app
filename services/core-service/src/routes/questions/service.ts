@@ -1,4 +1,5 @@
 import { ServiceError } from '../../utils';
+import { isServiceError } from '../../utils/is-service-error';
 import QuestionRepo from './repo';
 
 export default class QuestionService {
@@ -76,6 +77,8 @@ export default class QuestionService {
 
       return quizResults;
     } catch (e: any) {
+      if (isServiceError(e)) throw e;
+
       throw new ServiceError({
         type: QuestionServiceError.FileReadError,
         message: 'Something went wrong while reading questions or answers file',
