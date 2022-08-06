@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { Questions } from '../../data/questions.type';
+import { Answer, Questions } from '../../data/quiz.type';
 
 export default class QuestionRepo {
   async getQuestions() {
@@ -14,6 +14,14 @@ export default class QuestionRepo {
     return questions;
   }
 
-    return questionsJson;
+  async getQuestionAnswers() {
+    // imagine this is coming from an ORM that has proper typing
+    const rawAnswerData = fs.readFileSync(
+      path.join(__dirname, '../../data', 'answers.json'),
+      'utf-8',
+    );
+    const answers = JSON.parse(rawAnswerData) as Answer[];
+
+    return answers;
   }
 }
