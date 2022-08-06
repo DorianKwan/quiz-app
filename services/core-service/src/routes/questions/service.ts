@@ -35,7 +35,7 @@ export default class QuestionService {
       questions.forEach(({ id, question, options }) => {
         const questionAnswer: string | undefined = quizAnswers[id];
 
-        const doesAnswerExistForQuestion = questionAnswer;
+        const doesAnswerExistForQuestion = !questionAnswer;
 
         if (doesAnswerExistForQuestion) {
           throw new ServiceError({
