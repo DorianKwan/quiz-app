@@ -1,0 +1,44 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "answer": "50"
+    },
+    {
+      "id": 2,
+      "answer": "Tallahassee"
+    },
+    {
+      "id": 3,
+      "answer": "1776"
+    },
+    {
+      "id": 4,
+      "answer": "13"
+    },
+    {
+      "id": 5,
+      "answer": "Alaska"
+    },
+    {
+      "id": 6,
+      "answer": "American Bison"
+    },
+    {
+      "id": 7,
+      "answer": "New York"
+    },
+    {
+      "id": 8,
+      "answer": "Alexander Hamilton"
+    },
+    {
+      "id": 9,
+      "answer": "Massachusetts"
+    },
+    {
+      "id": 10,
+      "answer": "Virginia"
+    }
+  ]
+}
