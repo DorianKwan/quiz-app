@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import { Answer, Questions } from '../../data/quiz.type';
+import { Answers } from '../../data/answer.type';
+import { Questions } from '../../data/question.type';
 
 export default class QuestionRepo {
   async getQuestions() {
@@ -20,7 +21,7 @@ export default class QuestionRepo {
       path.join(__dirname, '../../data', 'answers.json'),
       'utf-8',
     );
-    const answers = JSON.parse(rawAnswerData) as Answer[];
+    const { answers } = JSON.parse(rawAnswerData) as Answers;
 
     return answers;
   }
