@@ -23,6 +23,16 @@ const mockQuestions = [
   },
 ];
 
+const mockQuestionAnswers = [
+  { question_id: 1, answer: '50' },
+  { question_id: 2, answer: 'Tallahassee' },
+  { question_id: 3, answer: '1776' },
+  { question_id: 4, answer: '13' },
+];
+
+describe('Questions Api Service', () => {
+  describe('getQuestions', () => {
+    it('returns mocked questions', async () => {
       const repo = {
         getQuestions: jest.fn().mockResolvedValueOnce(mockQuestions),
       };
@@ -47,6 +57,91 @@ const mockQuestions = [
         await service.getQuestions();
       } catch (e: any) {
         expect(e.type).toBe(QuestionServiceError.FileReadError);
+      }
+    });
+  });
+
+  describe('determineQuizResults', () => {
+    it('returns correct determination of quiz results', async () => {
+      const quizAnswers = [
+        { questionId: 1, answer: '50' },
+        { questionId: 2, answer: 'Tallahassee' },
+        { questionId: 3, answer: '1776' },
+        { questionId: 4, answer: '13' },
+      ];
+
+      const repo = {
+        getQuestions: jest.fn().mockResolvedValueOnce(mockQuestions),
+        getQuestionAnswers: jest
+          .fn()
+          .mockResolvedValueOnce(mockQuestionAnswers),
+      };
+
+      const service = new Service(repo as any);
+
+      const quizResults = await service.determineQuizResults(quizAnswers);
+
+      expect(repo.getQuestions).toHaveBeenCalled();
+      expect(repo.getQuestions).toHaveBeenCalledTimes(1);
+      expect(repo.getQuestionAnswers).toHaveBeenCalled();
+      expect(repo.getQuestionAnswers).toHaveBeenCalledTimes(1);
+      expect(quizResults).toStrictEqual([
+        { questionId: 1, isCorrect: true },
+        { questionId: 2, isCorrect: true },
+        { questionId: 3, isCorrect: true },
+        { questionId: 4, isCorrect: true },
+      ]);
+    });
+
+    it('throws when missing answer for quiz', async () => {
+      const quizAnswers = [
+        { questionId: 1, answer: '50' },
+        { questionId: 2, answer: 'Tallahassee' },
+        { questionId: 3, answer: '1776' },
+      ];
+
+      const repo = {
+        getQuestions: jest.fn().mockResolvedValueOnce(mockQuestions),
+        getQuestionAnswers: jest
+          .fn()
+          .mockResolvedValueOnce(mockQuestionAnswers),
+      };
+
+      const service = new Service(repo as any);
+
+      expect.assertions(1);
+
+      try {
+        await service.determineQuizResults(quizAnswers);
+      } catch (e: any) {
+        expect(e.type).toBe(QuestionServiceError.MissingQuestionAnswer);
+      }
+    });
+
+    it('throws when question answer is not an option', async () => {
+      const quizAnswers = [
+        { questionId: 1, answer: '50' },
+        { questionId: 2, answer: 'Tallahassee' },
+        { questionId: 3, answer: '1776' },
+        // answer that does not exist
+        { questionId: 4, answer: '14' },
+      ];
+
+      const repo = {
+        getQuestions: jest.fn().mockResolvedValueOnce(mockQuestions),
+        getQuestionAnswers: jest
+          .fn()
+          .mockResolvedValueOnce(mockQuestionAnswers),
+      };
+
+      const service = new Service(repo as any);
+
+      expect.assertions(1);
+
+      try {
+        await service.determineQuizResults(quizAnswers);
+      } catch (e: any) {
+        expect(e.type).toBe(QuestionServiceError.AnswerNotFound);
       }
     });
   });
