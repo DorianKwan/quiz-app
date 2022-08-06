@@ -1,12 +1,13 @@
-export interface QuestionAnswer {
+export interface Answer {
+  id: number;
+  question_id: number;
   answer: string;
-  is_correct: boolean;
 }
 
 export interface Question {
   id: number;
   question: string;
-  answers: QuestionAnswer[];
+  options: string[];
 }
 
 export interface Questions {
