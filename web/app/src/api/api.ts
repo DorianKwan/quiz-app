@@ -17,9 +17,7 @@ const createApi = (baseUrl: string) => {
       async getQuestionsList() {
         type Response = AxiosResponse<ApiResponse<ApiData.QuestionsList>>;
 
-        const response = await coreServiceApi.get<Response>(
-          '/world-time-api/timezones',
-        );
+        const response = await coreServiceApi.get<Response>('/questions');
 
         if (response.status !== 200) throw new Error(response.statusText);
 
