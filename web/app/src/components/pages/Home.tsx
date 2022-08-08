@@ -1,53 +1,42 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useHistory } from 'react-router';
 import styled from '@emotion/styled';
-import { ApiData } from 'quiz-shared';
-import { useAsyncEffect, useTypedTheme } from 'src/hooks';
-import { coreServiceApi } from 'src/api';
-import { Loader, PageWrapper, AnimatedText, FadeIn } from '../utility';
+import { useTypedTheme } from 'src/hooks';
+import { AnimatedText } from '../utility';
+import { Button } from '../common/Button';
 
-export const Home = () => {
+export const Home: React.VFC = () => {
   const theme = useTypedTheme();
-  const [quizQuestions, setQuizQuestions] = useState<ApiData.QuestionsList>([]);
-  const [isLoadingQuestions, setIsLoadingQuestions] = useState(true);
+  const history = useHistory();
 
-  useAsyncEffect(async () => {
-    const questions = await coreServiceApi.questions.getQuestionsList();
-    setQuizQuestions(questions);
-    setIsLoadingQuestions(false);
-  }, []);
-
-  if (isLoadingQuestions) {
-    return <Loader />;
-  }
+  const goToQuiz = () => {
+    history.push('/quiz');
+  };
 
   return (
     <HomePageWrapper>
-      <div>
-        <HomeHeading>
-          <AnimatedText charDelay={0.05} content="Take the Quiz!" />
-        </HomeHeading>
-        <HomeSubHeading>
-          <AnimatedText
-            charDelay={0.02}
-            content="How much do you know about the United States?"
-          />
-        </HomeSubHeading>
-        <StartButtonWrapper>
-          <StartButton
-            type="button"
-            color={theme.colors.purple}
-            hoverColor={theme.colors.darkPurple}>
-            Start!
-          </StartButton>
-        </StartButtonWrapper>
-      </div>
+      <HomeHeading>
+        <AnimatedText charDelay={0.05} content="Take the Quiz!" />
+      </HomeHeading>
+      <HomeSubHeading>
+        <AnimatedText
+          charDelay={0.02}
+          content="How much do you know about the United States?"
+        />
+      </HomeSubHeading>
+      <Button
+        onClick={goToQuiz}
+        color={theme.colors.purple}
+        hoverColor={theme.colors.darkPurple}>
+        Start!
+      </Button>
     </HomePageWrapper>
   );
 };
 
-const HomePageWrapper = styled(PageWrapper)`
-  display: grid;
-  place-items: center;
+const HomePageWrapper = styled.div`
+  width: 100%;
+  padding: 2rem;
 `;
 
 const HomeHeading = styled.h1`
@@ -65,9 +54,10 @@ const HomeHeading = styled.h1`
 `;
 
 const HomeSubHeading = styled.h2`
-  font-size: 1.5rem;
-  width: 18ch;
+  font-size: 1.3rem;
+  width: 24ch;
   margin: 0 auto;
+  word-wrap: nowrap;
   margin-bottom: 3rem;
 
   @media only screen and (min-width: 420px) {
@@ -76,34 +66,5 @@ const HomeSubHeading = styled.h2`
   @media only screen and (min-width: 767px) {
     font-size: 2rem;
     width: 100%;
-  }
-`;
-
-const StartButtonWrapper = styled(FadeIn)`
-  margin: 0 auto;
-`;
-
-const StartButton = styled.button<{ color: string; hoverColor: string }>`
-  padding: 0.25rem 1.25rem;
-  font-size: 1.25rem;
-  border-radius: 1.25rem;
-  border: none;
-  color: white;
-  font-weight: bold;
-  background: ${({ color }) => color};
-  transition: 0.3s all ease-in-out;
-
-  &:hover {
-    transform: scale(1.035);
-    background: ${({ hoverColor }) => hoverColor};
-  }
-
-  @media only screen and (min-width: 420px) {
-    padding: 0.35rem 2rem;
-    font-size: 1.5rem;
-  }
-  @media only screen and (min-width: 767px) {
-    padding: 0.5rem 3rem;
-    font-size: 1.75rem;
   }
 `;
