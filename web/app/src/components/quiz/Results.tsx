@@ -7,20 +7,34 @@ interface ResultsProps {
   results: ApiData.QuizResults;
   lastColorInGradient: string;
   goBackToHome: () => void;
+  readonly nextGradient: () => void;
+  readonly prevGradient: () => void;
 }
 
 export const Results: React.VFC<ResultsProps> = ({
   results,
   lastColorInGradient,
   goBackToHome,
+  nextGradient,
+  prevGradient,
 }) => {
   const {
-    onPrev,
-    onNext,
+    prevResult,
+    nextResult,
     resultIndex,
     currentQuizResult,
     numOfIncorrectAnswers,
   } = useQuizResults(results);
+
+  const onNext = () => {
+    nextGradient();
+    nextResult();
+  };
+
+  const onPrev = () => {
+    prevGradient();
+    prevResult();
+  };
 
   const determineResultContent = () => {
     if (!currentQuizResult) {

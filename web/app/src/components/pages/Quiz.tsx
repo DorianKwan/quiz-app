@@ -69,6 +69,8 @@ export const Quiz: React.VFC = () => {
           results={quizResults}
           lastColorInGradient={lastColorInGradient}
           goBackToHome={goBackToHome}
+          nextGradient={next}
+          prevGradient={prev}
         />
       );
     }

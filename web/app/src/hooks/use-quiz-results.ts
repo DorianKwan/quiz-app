@@ -12,11 +12,11 @@ export const useQuizResults = (results: ApiData.QuizResults) => {
     setCurrentQuizResult(incorrectAnswers[resultIndex]);
   }, [incorrectAnswers, resultIndex]);
 
-  const onPrev = () => {
+  const prevResult = () => {
     setResultIndex(prev => prev - 1);
   };
 
-  const onNext = () => {
+  const nextResult = () => {
     setResultIndex(prev => prev + 1);
   };
 
@@ -24,7 +24,7 @@ export const useQuizResults = (results: ApiData.QuizResults) => {
     currentQuizResult,
     numOfIncorrectAnswers: incorrectAnswers.length,
     resultIndex,
-    onPrev,
-    onNext,
+    prevResult,
+    nextResult,
   };
 };
