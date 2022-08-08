@@ -15,14 +15,14 @@ export const FadeIn: React.FC<AnimationProps> = ({
 };
 
 const fadeInAnimation = keyframes`
-from {
-  opacity: 0;
-  filter: blur(0.5rem);
-}
-to {
-  opacity: 1;
-  filter: blur(0);
-}
+  from {
+    opacity: 0;
+    filter: blur(25%);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
 `;
 
 const FadeInWrapper = styled.div<AnimationProps>`
