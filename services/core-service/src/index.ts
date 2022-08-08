@@ -10,7 +10,7 @@ const main = async () => {
   const server = new Koa();
   const logger = createLogger({ debug: !isProduction });
 
-  server.use(cors({ origin: reactAppUrl, allowHeaders: ['GET', 'POST'] }));
+  server.use(cors({ origin: reactAppUrl, allowMethods: ['GET', 'POST'] }));
   server.use(propagateErrors(!isProduction));
   server.use(propagateValues());
 
