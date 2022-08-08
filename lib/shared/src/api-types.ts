@@ -12,8 +12,13 @@ export namespace ApiData {
     answer: string;
   };
 
-  export type QuizResults = {
+  export type QuestionResult = {
     questionId: number;
     isCorrect: boolean;
-  }[];
+    question: string;
+    answerGiven: string;
+    correctAnswer: string;
+  };
+
+  export type QuizResults = QuestionResult[];
 }
