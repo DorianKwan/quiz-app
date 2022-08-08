@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/react';
 import { capitalizeString } from '../../utils';
 
-interface Props {
+interface AnimatedTextProps {
   readonly content: string;
   readonly duration?: number;
   readonly charDelay?: number;
@@ -11,13 +11,13 @@ interface Props {
   readonly stopAnimation?: boolean;
 }
 
-export const AnimatedText = ({
+export const AnimatedText: React.VFC<AnimatedTextProps> = ({
   capitalize,
   content,
   duration,
   charDelay,
   stopAnimation,
-}: Props) => {
+}) => {
   const contentToAnimate = capitalize
     ? capitalizeString(content, true)
     : content;

@@ -11,9 +11,8 @@ interface CompletionBoxProps {
   readonly showResults?: () => void;
 }
 
-export const CompletionBox: React.FC<CompletionBoxProps> = ({
+export const CompletionBox: React.VFC<CompletionBoxProps> = ({
   score,
-
   showResults,
   goBackToHome,
 }) => {

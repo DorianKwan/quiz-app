@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
 
-export const Loader = () => {
+export const Loader: React.VFC = () => {
   return (
     <LoadingContainer>
       <Loading aria-label="loading animation">

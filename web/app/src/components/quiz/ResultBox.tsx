@@ -13,7 +13,7 @@ interface ResultBoxProps {
   readonly goBackToHome?: () => void;
 }
 
-export const ResultBox: React.FC<ResultBoxProps> = ({
+export const ResultBox: React.VFC<ResultBoxProps> = ({
   result,
   lastColorInGradient,
   onNext,

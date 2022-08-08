@@ -22,7 +22,7 @@ const routes = [
   },
 ];
 
-export const Nav = () => {
+export const Nav: React.VFC = () => {
   return (
     <Router>
       <Container>

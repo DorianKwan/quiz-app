@@ -9,7 +9,7 @@ interface OptionSelectProps {
   readonly radioSelectColor: string;
 }
 
-export const OptionSelect: React.FC<OptionSelectProps> = ({
+export const OptionSelect: React.VFC<OptionSelectProps> = ({
   onSelect,
   option,
   defaultChecked,

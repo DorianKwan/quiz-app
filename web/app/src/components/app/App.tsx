@@ -4,7 +4,7 @@ import { ThemeProvider } from '@emotion/react';
 import theme from '../../theme/theme';
 import { Nav } from '../nav/Nav';
 
-export const App = () => {
+export const App: React.VFC = () => {
   return (
     <StrictMode>
       <ThemeProvider theme={theme}>
