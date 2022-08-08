@@ -86,10 +86,34 @@ describe('Questions Api Service', () => {
       expect(repo.getQuestionAnswers).toHaveBeenCalled();
       expect(repo.getQuestionAnswers).toHaveBeenCalledTimes(1);
       expect(quizResults).toStrictEqual([
-        { questionId: 1, isCorrect: true },
-        { questionId: 2, isCorrect: true },
-        { questionId: 3, isCorrect: true },
-        { questionId: 4, isCorrect: true },
+        {
+          questionId: 1,
+          isCorrect: true,
+          question: 'How many states are in the USA?',
+          answerGiven: '50',
+          correctAnswer: '50',
+        },
+        {
+          questionId: 2,
+          isCorrect: true,
+          question: 'What is the capital of Florida?',
+          answerGiven: 'Tallahassee',
+          correctAnswer: 'Tallahassee',
+        },
+        {
+          questionId: 3,
+          isCorrect: true,
+          question: 'What year was the Declaration of Independence signed?',
+          answerGiven: '1776',
+          correctAnswer: '1776',
+        },
+        {
+          questionId: 4,
+          isCorrect: true,
+          question: 'How many states were originally part of the US?',
+          answerGiven: '13',
+          correctAnswer: '13',
+        },
       ]);
     });
 
