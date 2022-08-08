@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ApiData } from 'quiz-shared';
 import styled from '@emotion/styled';
 import { useTypedTheme } from 'src/hooks';
-import { Box } from '../common';
+import { ActionButton, ActionsWrapper, Box } from '../common';
 import { FadeIn } from '../utility';
 import { OptionSelect } from './OptionSelect';
 
@@ -93,16 +93,24 @@ export const QuizBox: React.VFC<QuizBoxProps> = ({
 };
 
 const Question = styled.h2<{ color: string }>`
+  font-size: 1.45rem;
   font-size: 1.875rem;
+  margin-bottom: 1rem;
   color: ${({ color }) => color};
   font-weight: 500;
 `;
 
 const OptionsFadeIn = styled(FadeIn)`
-  height: clamp(65%, 85%, 15rem);
+  height: 12.5rem;
+  width: fit-content;
+  margin: 0 auto;
   display: grid;
   place-items: center;
   grid-template-rows: 1fr auto;
+
+  @media only screen and (min-width: 640px) {
+    height: 13rem;
+  }
 `;
 
 const OptionsFieldset = styled.fieldset`
@@ -111,33 +119,16 @@ const OptionsFieldset = styled.fieldset`
   border: none;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-auto-columns: 1fr;
-  gap: 3rem 1em;
-  grid-template-areas:
-    '. .'
-    '. .';
-`;
+  place-items: start;
+  grid-gap: 1rem;
 
-const ActionsWrapper = styled.div`
-  position: absolute;
-  left: 0;
-  bottom: 1.5rem;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 1rem;
-
-  @media only screen and (min-width: 480px) {
-    padding: 0 2rem;
+  @media only screen and (min-width: 640px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-auto-columns: 1fr;
+    gap: 3rem 2rem;
+    grid-template-areas:
+      '. .'
+      '. .';
   }
-`;
-
-const ActionButton = styled.button`
-  border: none;
-  background: white;
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: ${({ color }) => color};
 `;
