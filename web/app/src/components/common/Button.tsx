@@ -52,7 +52,7 @@ const StyledButton = styled.button<{
   border-radius: 1rem;
   border: none;
   color: white;
-  font-weight: bold;
+  font-weight: 600;
   background: ${({ color }) => color};
   transition: 0.3s all ease-in-out;
 
