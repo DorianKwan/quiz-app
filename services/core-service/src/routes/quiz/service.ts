@@ -32,8 +32,12 @@ export default class QuizService {
 
       const questions = await this.questionRepo.getQuestions();
 
+      const questionsMap: { [questionId: number]: string } = {};
+
       questions.forEach(({ id, question, options }) => {
         const questionAnswer: string | undefined = quizAnswers[id];
+
+        questionsMap[id] = question;
 
         const doesAnswerExistForQuestion = !questionAnswer;
 
@@ -72,7 +76,13 @@ export default class QuizService {
           const quizAnswer = quizAnswers[questionId];
           const isCorrect = quizAnswer === answer;
 
-          return { questionId, isCorrect };
+          return {
+            questionId,
+            isCorrect,
+            question: questionsMap[questionId],
+            answerGiven: quizAnswer,
+            correctAnswer: answer,
+          };
         },
       );
 
