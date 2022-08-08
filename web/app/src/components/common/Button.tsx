@@ -49,8 +49,8 @@ const StyledButton = styled.button<{
 }>`
   padding: 0.25rem 1.25rem;
   font-size: 1.25rem;
-  border-radius: 1rem;
   border: none;
+  border-radius: 0.5rem;
   color: white;
   font-weight: 600;
   background: ${({ color }) => color};
@@ -64,6 +64,7 @@ const StyledButton = styled.button<{
   }
 
   @media only screen and (min-width: 420px) {
+    border-radius: 1rem;
     padding: 0.35rem 2rem;
     font-size: 1.5rem;
   }
