@@ -16,10 +16,6 @@ export interface UIGradient {
 
 export const gradients: UIGradient[] = [
   {
-    name: 'Blu',
-    colors: ['#00416A', '#E4E5E6'],
-  },
-  {
     name: 'Ver',
     colors: ['#FFE000', '#799F0C'],
   },
@@ -50,10 +46,6 @@ export const gradients: UIGradient[] = [
   {
     name: 'Mango',
     colors: ['#ffe259', '#ffa751'],
-  },
-  {
-    name: 'Bupe',
-    colors: ['#00416A', '#E4E5E6'],
   },
   {
     name: 'Rea',
@@ -158,10 +150,6 @@ export const gradients: UIGradient[] = [
   {
     name: 'Monte Carlo',
     colors: ['#CC95C0', '#DBD4B4', '#7AA1D2'],
-  },
-  {
-    name: 'Horizon',
-    colors: ['#003973', '#E5E5BE'],
   },
   {
     name: 'Rose Water',
@@ -530,10 +518,6 @@ export const gradients: UIGradient[] = [
   {
     name: 'Turquoise flow',
     colors: ['#136a8a', '#267871'],
-  },
-  {
-    name: 'Portrait',
-    colors: ['#8e9eab', '#eef2f3'],
   },
   {
     name: 'Virgin America',
