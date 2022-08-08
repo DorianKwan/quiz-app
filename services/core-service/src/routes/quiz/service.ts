@@ -58,6 +58,7 @@ export default class QuizService {
             data: {
               id,
               question,
+              options,
               answerGiven: questionAnswer,
             },
           });
