@@ -59,6 +59,14 @@ const StyledRadio = styled.input<{ radioSelectColor: string }>`
 `;
 
 const StyledLabel = styled.label`
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: ${({ color }) => color};
+
+  @media only screen and (min-width: 420px) {
+    font-size: 1.3rem;
+  }
+
+  @media only screen and (min-width: 640px) {
+    font-size: 1.5rem;
+  }
 `;
