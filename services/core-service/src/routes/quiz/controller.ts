@@ -51,8 +51,10 @@ export default (questionService: QuizService) => {
           return quizResults;
         } catch (e: any) {
           switch (e.type) {
+            case QuizServiceError.MissingQuestionAnswer:
+              throw err(400, e.message).withData(e.data);
             case QuizServiceError.AnswerNotFound:
-              throw err(404, e.message);
+              throw err(404, e.message).withData(e.data);
             default:
               throw e;
           }
