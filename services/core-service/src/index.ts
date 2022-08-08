@@ -1,7 +1,7 @@
 import Koa from 'koa';
 import cors from '@koa/cors';
 import { Router, propagateErrors, propagateValues, err } from '@lcdev/router';
-import Questions from './routes/questions';
+import Quiz from './routes/quiz';
 import { createServer, createLogger, getLogger, loadConfig } from './utils';
 
 const main = async () => {
@@ -16,7 +16,7 @@ const main = async () => {
 
   const router = new Router({ prefix: '/api' });
 
-  router.use('/questions', Questions());
+  router.use('/quiz', Quiz());
 
   server
     .use(router.routes())

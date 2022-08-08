@@ -1,4 +1,4 @@
-import Service, { QuestionServiceError } from './service';
+import Service, { QuizServiceError } from './service';
 
 const mockQuestions = [
   {
@@ -56,7 +56,7 @@ describe('Questions Api Service', () => {
       try {
         await service.getQuestions();
       } catch (e: any) {
-        expect(e.type).toBe(QuestionServiceError.FileReadError);
+        expect(e.type).toBe(QuizServiceError.FileReadError);
       }
     });
   });
@@ -114,7 +114,7 @@ describe('Questions Api Service', () => {
       try {
         await service.determineQuizResults(quizAnswers);
       } catch (e: any) {
-        expect(e.type).toBe(QuestionServiceError.MissingQuestionAnswer);
+        expect(e.type).toBe(QuizServiceError.MissingQuestionAnswer);
       }
     });
 
@@ -141,7 +141,7 @@ describe('Questions Api Service', () => {
       try {
         await service.determineQuizResults(quizAnswers);
       } catch (e: any) {
-        expect(e.type).toBe(QuestionServiceError.AnswerNotFound);
+        expect(e.type).toBe(QuizServiceError.AnswerNotFound);
       }
     });
   });

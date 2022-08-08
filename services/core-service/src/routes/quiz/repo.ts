@@ -3,7 +3,7 @@ import path from 'path';
 import { Answers } from '../../data/answer.type';
 import { Questions } from '../../data/question.type';
 
-export default class QuestionRepo {
+export default class QuizRepo {
   async getQuestions() {
     // imagine this is coming from an ORM that has proper typing
     const rawQuestionData = fs.readFileSync(

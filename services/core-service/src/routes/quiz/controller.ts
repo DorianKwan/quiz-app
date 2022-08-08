@@ -7,9 +7,9 @@ import {
   err,
   SchemaBuilder,
 } from '@lcdev/router';
-import QuestionService, { QuestionServiceError } from './service';
+import QuizService, { QuizServiceError } from './service';
 
-export default (questionService: QuestionService) => {
+export default (questionService: QuizService) => {
   const router = new Router();
 
   router.use(bodyparser());
@@ -25,7 +25,7 @@ export default (questionService: QuestionService) => {
           return questions;
         } catch (e: any) {
           switch (e.type) {
-            case QuestionServiceError.FileReadError:
+            case QuizServiceError.FileReadError:
               throw err(500, e.message);
             default:
               throw e;
@@ -51,7 +51,7 @@ export default (questionService: QuestionService) => {
           return quizResults;
         } catch (e: any) {
           switch (e.type) {
-            case QuestionServiceError.AnswerNotFound:
+            case QuizServiceError.AnswerNotFound:
               throw err(404, e.message);
             default:
               throw e;

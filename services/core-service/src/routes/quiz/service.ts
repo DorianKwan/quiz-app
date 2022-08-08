@@ -2,7 +2,7 @@ import { ServiceError } from '../../utils';
 import { isServiceError } from '../../utils/is-service-error';
 import QuestionRepo from './repo';
 
-export default class QuestionService {
+export default class QuizService {
   constructor(private readonly questionRepo: QuestionRepo) {}
 
   async getQuestions() {
@@ -12,7 +12,7 @@ export default class QuestionService {
       return questions;
     } catch (e: any) {
       throw new ServiceError({
-        type: QuestionServiceError.FileReadError,
+        type: QuizServiceError.FileReadError,
         message: 'Something went wrong while reading questions file',
       });
     }
@@ -39,7 +39,7 @@ export default class QuestionService {
 
         if (doesAnswerExistForQuestion) {
           throw new ServiceError({
-            type: QuestionServiceError.MissingQuestionAnswer,
+            type: QuizServiceError.MissingQuestionAnswer,
             message: 'An answer is missing for a quiz question',
             data: {
               id,
@@ -53,7 +53,7 @@ export default class QuestionService {
 
         if (!isAnswerInOptions) {
           throw new ServiceError({
-            type: QuestionServiceError.AnswerNotFound,
+            type: QuizServiceError.AnswerNotFound,
             message: `Answer for question ${id} was not found`,
             data: {
               id,
@@ -80,14 +80,14 @@ export default class QuestionService {
       if (isServiceError(e)) throw e;
 
       throw new ServiceError({
-        type: QuestionServiceError.FileReadError,
+        type: QuizServiceError.FileReadError,
         message: 'Something went wrong while reading questions or answers file',
       });
     }
   }
 }
 
-export enum QuestionServiceError {
+export enum QuizServiceError {
   FileReadError = 'question/file-read',
   AnswerNotFound = 'question/answer-not-found',
   MissingQuestionAnswer = 'question/missing-answer',
