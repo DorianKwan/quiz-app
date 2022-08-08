@@ -8,6 +8,7 @@ interface Props {
   readonly duration?: number;
   readonly charDelay?: number;
   readonly capitalize?: boolean;
+  readonly stopAnimation?: boolean;
 }
 
 export const AnimatedText = ({
@@ -15,6 +16,7 @@ export const AnimatedText = ({
   content,
   duration,
   charDelay,
+  stopAnimation,
 }: Props) => {
   const contentToAnimate = capitalize
     ? capitalizeString(content, true)
@@ -31,6 +33,10 @@ export const AnimatedText = ({
         <span key={index}>{char}</span>
       );
     });
+
+  if (stopAnimation) {
+    return <NoAnimationWrapper>{splitContent}</NoAnimationWrapper>;
+  }
 
   return (
     <Wrapper
@@ -72,6 +78,10 @@ const createAnimationDelay = (charCount: number, charDelay?: number) => {
     ${styles}
   `;
 };
+
+const NoAnimationWrapper = styled.span`
+  letter-spacing: 1px;
+`;
 
 const Wrapper = styled.span<{
   duration?: number;
