@@ -8,10 +8,13 @@ import { FadeIn } from '../utility';
 interface CompletionBoxProps {
   readonly score: string;
   readonly goBackToHome: () => void;
+  readonly showResults?: () => void;
 }
 
 export const CompletionBox: React.FC<CompletionBoxProps> = ({
   score,
+
+  showResults,
   goBackToHome,
 }) => {
   const theme = useTypedTheme();
@@ -46,12 +49,22 @@ export const CompletionBox: React.FC<CompletionBoxProps> = ({
         <FadeIn>
           <ResultText color={theme.colors.ash}>{score}</ResultText>
         </FadeIn>
-        <Button
-          onClick={goBackToHome}
-          color={theme.colors.purple}
-          hoverColor={theme.colors.darkPurple}>
-          Go Back to Start
-        </Button>
+        <ButtonWrapper>
+          <Button
+            onClick={goBackToHome}
+            color={theme.colors.purple}
+            hoverColor={theme.colors.darkPurple}>
+            Back to Start
+          </Button>
+          {!!showResults && (
+            <Button
+              onClick={showResults}
+              color={theme.colors.purple}
+              hoverColor={theme.colors.darkPurple}>
+              See Results
+            </Button>
+          )}
+        </ButtonWrapper>
       </ContentWrapper>
     </Box>
   );
@@ -59,12 +72,27 @@ export const CompletionBox: React.FC<CompletionBoxProps> = ({
 
 const ContentWrapper = styled.div`
   display: grid;
+  place-items: center;
+  height: 100%;
+  padding-bottom: 3rem;
+
+  @media only screen and (min-width: 640px) {
+    padding-bottom: 0;
+  }
 `;
 
 const SuccessHeading = styled.h1`
-  font-size: 3rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
   color: ${({ color }) => color};
+
+  @media only screen and (min-width: 640px) {
+    font-size: 2.5rem;
+  }
+
+  @media only screen and (min-width: 640px) {
+    font-size: 3rem;
+  }
 `;
 
 const ResultText = styled.p`
@@ -72,4 +100,16 @@ const ResultText = styled.p`
   margin-bottom: 2.5rem;
   color: ${({ color }) => color};
   font-weight: 600;
+`;
+
+const ButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+
+  @media only screen and (min-width: 640px) {
+    flex-direction: row;
+  }
 `;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { useTypedTheme, useRandomGradient, useQuiz } from 'src/hooks';
 import { useHistory } from 'react-router';
@@ -6,10 +6,12 @@ import { QuizBox } from '../quiz';
 import { FadeIn, GradientContainer, Loader, PageWrapper } from '../utility';
 import { Button, Box } from '../common';
 import { CompletionBox } from '../quiz/CompletionBox';
+import { Results } from '../quiz/Results';
 
 export const Quiz: React.VFC = () => {
   const theme = useTypedTheme();
   const history = useHistory();
+  const [showResults, setShowResults] = useState(false);
   const { gradient, next, prev } = useRandomGradient(theme);
   const {
     currentQuestionStep,
@@ -59,7 +61,18 @@ export const Quiz: React.VFC = () => {
 
   const lastColorInGradient = gradient.colors[gradient.colors.length - 1];
 
-  const buildQuizBox = () => {
+  // the solution here is quite messy, if this were for production use I would refactor heavily
+  const determineQuizContent = () => {
+    if (showResults && quizResults) {
+      return (
+        <Results
+          results={quizResults}
+          lastColorInGradient={lastColorInGradient}
+          goBackToHome={goBackToHome}
+        />
+      );
+    }
+
     if (quizResults) {
       const userScore = quizResults.reduce((score, { isCorrect }) => {
         if (isCorrect) {
@@ -71,6 +84,15 @@ export const Quiz: React.VFC = () => {
 
       const score = `${userScore}/${quizQuestions.length}`;
 
+      if (userScore !== quizQuestions.length) {
+        return (
+          <CompletionBox
+            score={score}
+            showResults={() => setShowResults(true)}
+            goBackToHome={goBackToHome}
+          />
+        );
+      }
       return <CompletionBox score={score} goBackToHome={goBackToHome} />;
     }
 
@@ -117,7 +139,7 @@ export const Quiz: React.VFC = () => {
               <Loader />
             </Box>
           ) : (
-            buildQuizBox()
+            determineQuizContent()
           )}
         </PageWrapper>
       </GradientContainer>
