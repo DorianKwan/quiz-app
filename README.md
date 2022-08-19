@@ -1,4 +1,5 @@
 # Getting Started
+![quiz](https://user-images.githubusercontent.com/26664788/185707676-a0988337-560d-4016-b8cc-8f8369d8fc59.gif)  
 
 First ensure you're on node version **v16.15.1**. `.nvmrc` will enforce this version.  
 Recommended node version managers: **[n](https://github.com/tj/n)** or **[nvm](https://github.com/nvm-sh/nvm)**
